@@ -56,8 +56,10 @@ public class Kramer {
         }
         System.out.println();
         scanner.close();
+        float[] results = KramerOP.solveSystem(matrix, vector);
+        int a = Determinate.calcularDeterminante(matrix);
+        System.out.print("Determinante: "+a);
         
-        double[] results = KramerOP.solveSystem(matrix, vector);
     }  
     
 }

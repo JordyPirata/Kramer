@@ -9,28 +9,28 @@ package kramer;
  * @author Jordy
  */
 public class KramerOP {
-    public static double[] solveSystem(int[][] A, int[] b) {
+    public static float[] solveSystem(int[][] A, int[] b) {
         int n = A.length;
-        double[] x = new double[n];
+        float[] x = new float[n];
 
-        double detA = Determinate.calcularDeterminante(A);
+        float detA = Determinate.calcularDeterminante(A);
 
         for (int i = 0; i < n; i++) {
-            double[][] Ai = KramerOP.replaceColumnWithVector(A, b, i);
-            double detAi = Determinate.calcularDeterminante(A);
+            float[][] Ai = KramerOP.replaceColumnWithVector(A, b, i);
+            float detAi = Determinate.calcularDeterminante(A);
             x[i] = detAi / detA;
         }
         
         return x;
     }
-    public static double[][] replaceColumnWithVector(int[][] matrix, int[] vector, int columnIndex) {
+    public static float[][] replaceColumnWithVector(int[][] matrix, int[] vector, int columnIndex) {
     int numRows = matrix.length;
 
     if (numRows != vector.length || columnIndex < 0 || columnIndex >= matrix[0].length) {
         throw new IllegalArgumentException("La matriz y el vector deben tener dimensiones compatibles, y el índice de columna debe estar dentro de los límites de la matriz.");
     }
 
-    double[][] result = new double[numRows][matrix[0].length];
+    float[][] result = new float[numRows][matrix[0].length];
 
     for (int i = 0; i < numRows; i++) {
         for (int j = 0; j < matrix[0].length; j++) {
