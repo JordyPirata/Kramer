@@ -21,7 +21,7 @@ public class Kramer {
         System.out.println("Indique el sistema de ecuaciones por resolver (n x n): ");
         System.out.println("Cuantas variables tiene el sitema: ");
         int n = scanner.nextInt();
-        int[][] matrix = new int[n][n + 1];
+        float[][] matrix = new float[n][n + 1];
         
         System.out.print("""
                          Ingrese los elementos de la matriz en el formato: 
@@ -31,7 +31,7 @@ public class Kramer {
                          \u00b1n \u00b1n =  \u00b1n
                          """);
         scanner.nextLine();
-        int[] vector = new int[n];
+        float[] vector = new float[n];
         for (int i = 0; i < n; i++) {
             String line = scanner.nextLine();
             String[] values = line.split("\\s+");
@@ -57,9 +57,9 @@ public class Kramer {
         System.out.println();
         scanner.close();
         float[] results = KramerOP.solveSystem(matrix, vector);
-        int a = Determinate.calcularDeterminante(matrix);
-        System.out.print("Determinante: "+a);
-        
-    }  
-    
+        for (float r : results) {
+            System.out.print(r + " ");
+        }
+    }
+ 
 }

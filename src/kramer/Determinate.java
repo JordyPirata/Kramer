@@ -10,8 +10,8 @@ package kramer;
  */
 public class Determinate {
     
-    public static int calcularDeterminante(int[][] A) {
-        int n = A.length;
+    public static float calcularDeterminante(float[][] A) {
+        float n = A.length;
         
         if (n == 1) {
             return A[0][0];
@@ -21,11 +21,11 @@ public class Determinate {
             return (A[0][0] * A[1][1]) - (A[0][1] * A[1][0]);
         }
         
-        int determinante = 0;
+        float determinante = 0;
         
         for (int i = 0; i < n; i++) {
 
-            int cofactor = A[0][i] * calcularDeterminante(obtenerSubmatriz(A, 0, i));
+            float cofactor = A[0][i] * calcularDeterminante(obtenerSubmatriz(A, 0, i));
             
             if (i % 2 == 0) {
                 determinante += cofactor;
@@ -37,9 +37,9 @@ public class Determinate {
         return determinante;
     }
     
-    private static int[][] obtenerSubmatriz(int[][] matriz, int fila, int columna) {
+    private static float[][] obtenerSubmatriz(float[][] matriz, float fila, float columna) {
         int n = matriz.length;
-        int[][] submatriz = new int[n - 1][n - 1];
+        float[][] submatriz = new float[n - 1][n - 1];
         int r = 0, c = 0;
         
         for (int i = 0; i < n; i++) {

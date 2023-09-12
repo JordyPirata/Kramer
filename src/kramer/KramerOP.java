@@ -9,7 +9,7 @@ package kramer;
  * @author Jordy
  */
 public class KramerOP {
-    public static float[] solveSystem(int[][] A, int[] b) {
+    public static float[] solveSystem(float[][] A, float[] b) {
         int n = A.length;
         float[] x = new float[n];
 
@@ -17,13 +17,13 @@ public class KramerOP {
 
         for (int i = 0; i < n; i++) {
             float[][] Ai = KramerOP.replaceColumnWithVector(A, b, i);
-            float detAi = Determinate.calcularDeterminante(A);
+            float detAi = Determinate.calcularDeterminante(Ai);
             x[i] = detAi / detA;
         }
         
         return x;
     }
-    public static float[][] replaceColumnWithVector(int[][] matrix, int[] vector, int columnIndex) {
+    public static float[][] replaceColumnWithVector(float[][] matrix, float[] vector, int columnIndex) {
     int numRows = matrix.length;
 
     if (numRows != vector.length || columnIndex < 0 || columnIndex >= matrix[0].length) {
